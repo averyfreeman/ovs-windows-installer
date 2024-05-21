@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="3.5" DefaultTargets="Publish" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
     <ProductVersion>3.8</ProductVersion>
@@ -64,8 +64,8 @@
     </HeatDirectory>
   </Target>
   </Target>
-  <Target Name="AfterBuild">
-    <Copy SourceFiles=".\bin\$(Configuration)\en-us\$(OutputName).msi" DestinationFiles=".\bin\$(Configuration)\$(OutputName)_%(Version).msi" />
+  <Target Name="Publish">
+    <Copy SourceFiles="$(OutputPath)" DestinationFiles="$(OutputName)_$(ProductVersion).msi" />
   </Target> 
 </Project>
     
