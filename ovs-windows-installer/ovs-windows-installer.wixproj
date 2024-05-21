@@ -12,15 +12,6 @@
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <Version Condition=" '$(Version)' == '' ">1.0.0.0</Version>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <TestOutOfProccess Condition=" '$(PROCESSOR_ARCHITECTURE)'!='x86' ">true</TestOutOfProccess>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>BinariesPath=Binaries;SymbolsPath=Symbols;Version=$(Version)</DefineConstants>
-    <SuppressAllWarnings>False</SuppressAllWarnings>
-    <Pedantic>False</Pedantic>
-    <SuppressSpecificWarnings>1076;</SuppressSpecificWarnings>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <TestOutOfProccess Condition=" '$(PROCESSOR_ARCHITECTURE)'!='x86' ">true</TestOutOfProccess>
     <DefineConstants>BinariesPath=Binaries;SymbolsPath=Symbols;Version=$(Version)</DefineConstants>
@@ -29,6 +20,15 @@
     <SuppressSpecificWarnings>1076;</SuppressSpecificWarnings>
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <TestOutOfProccess Condition=" '$(PROCESSOR_ARCHITECTURE)'!='x86' ">true</TestOutOfProccess>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>BinariesPath=Binaries;SymbolsPath=Symbols;Version=$(Version)</DefineConstants>
+    <SuppressAllWarnings>False</SuppressAllWarnings>
+    <Pedantic>False</Pedantic>
+    <SuppressSpecificWarnings>1076;</SuppressSpecificWarnings>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Binaries.wxs" />
