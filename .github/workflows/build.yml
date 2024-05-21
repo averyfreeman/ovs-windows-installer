@@ -20,5 +20,5 @@ jobs:
       - name: Restore Packages
         run: nuget restore ovs-windows-installer.sln
       - name: Build solution
-        run: msbuild ovs-windows-installer.sln -target:Publish -verbosity:diag -toolsVersion:3.5 -p:Configuration=Publish -property:OutDir=".\pkg"
+        run: msbuild ovs-windows-installer.sln -target:Build;AfterBuild -verbosity:diag -toolsVersion:4.0
  -property:Platform="Any CPU"
